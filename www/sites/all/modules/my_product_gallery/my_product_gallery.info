@@ -1,0 +1,5 @@
+name = Product Gallery
+description = Create gallery for each product
+package = "Product"
+core = 7.x
+configure = admin/config/content/product_gallery

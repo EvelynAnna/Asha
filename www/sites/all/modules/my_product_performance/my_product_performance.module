@@ -1,0 +1,56 @@
+<?php
+
+function my_product_performance_info()
+{
+	$blocks['my_product_performance'] = array(
+		'info'  => t('Product Performance'),
+		'cache' => DRUPAL_CACHE_PER_ROLE, // по умолчанию
+	);
+
+	return $blocks;
+}
+
+
+	//hook_init()
+	//function my_product_performance_init() {
+	
+	//	drupal_set_message("It works!");
+		
+	//}
+
+	/**
+	* Gets HTML output of a switch which will switch between grid and list display of a view.
+	*/
+	function my_product_performance_get_views_display_switch() {
+ 
+	$switch = l(t('Grid'), '[page/grid]', array(
+		'query' => drupal_get_query_parameters(), // This ensures the view will keep filter settings when switching the display.
+		'attributes' => array(
+		'class' => array('page-grid-switch') // Adding a css class for this link.
+		)
+	));
+	$switch .= ' | ';
+	$switch .= l(t('List'), '[page/list]', array(
+		'query' => drupal_get_query_parameters(),
+		'attributes' => array(
+			'class' => array('page-list-switch')
+		)
+	));
+ 
+	// Adding CSS class for whole switch.
+	$switch = "<div class='page-display-switch'>" . $switch . "</div>";
+	return $switch;
+	}
+
+	
+	/**
+	* Implements hook_views_pre_view().
+	*/
+	function my_product_performance_views_pre_view(&$view, &$display_id, &$args) {
+		if ($view->name == '[view]' && $display_id == '[display1]' || $display_id == '[display_2]') {
+ 
+			// Adds a display switch to the header of a view.
+			// 'footer' as second parameter will add the display switch to the footer of the view instead.
+			$view->add_item($display_id, 'header', 'views', 'area', array('content' => my_product_performance_get_views_display_switch(), 'format' => 'full_html'));
+		}
+	}

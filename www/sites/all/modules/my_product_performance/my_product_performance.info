@@ -1,0 +1,3 @@
+name = Product Performance
+core = 7.x
+description = Provides a simple Views display switch to toggle between a list and a grid display of a view.
