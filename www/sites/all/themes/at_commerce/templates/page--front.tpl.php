@@ -3,7 +3,7 @@
   <div id="page" class="<?php print $classes; ?>">
 
       <!-- ВСТАВИЛА кнопка подъема наверх -->        
-      <div style="position: fixed; right: 15px; bottom: 30px; width: 32px; height: 32px; cursor: pointer; background-size: 32px 32px;" title="Вверх!"><a href="javascript:scroll(0,0)" ><img src="/sites/all/themes/at_commerce/arrow.png"></a></div>
+      <div id="ToTop" style="position: fixed; right: 15px; bottom: 30px; width: 32px; height: 32px; cursor: pointer; background-size: 32px 32px;" title="Вверх!"><a href="#"><img src="/sites/all/themes/at_commerce/arrow.png"></a></div>
       <!-- конец кнопки-->
       
     <?php if($page['draw']): ?>
@@ -119,11 +119,21 @@
 
               <?php print render($page['highlighted']); ?>
 
-                <!-- вставила КНОПКА СМЕНЫ ОТОБРАЖЕНИЯ КОНТЕНТА -->
-                
+                <!-- BEGIN КНОПКА СМЕНЫ ОТОБРАЖЕНИЯ КОНТЕНТА -->
+          <!--      
          <div> <button><a href="http://asha.ru/" class="llist">Список</a> | <a href="http://asha.ru/" class="ggrid">Плитка</a></button></div>
+            -->
+                <script>
+                    function SortAlert(){
+                        alert("Будет проведена сортировка по возрастанию цены");
+                    }
+                </script>
                 
-                <!-- вставила -->
+                
+                <button class="sortBtn" onClick="SortAlert()">Сортировать</button>
+                
+                
+                <!-- END -->
                 
               <?php if (
                 $page['two_50_top'] ||
@@ -138,10 +148,11 @@
                   <?php print render($page['two_50_second']); ?>
                   <?php print render($page['two_50_bottom']); ?>
                 </div>
+                
               <?php endif; ?>
-
+            
               <<?php print $tag; ?> id="main-content">
-
+       
                 <?php print render($title_prefix); ?>
                 <?php if ($title && (!isset($node) || $page_manager_get_current_page == TRUE)): ?>
                   <header>
@@ -170,6 +181,11 @@
 
                 <?php if ($content = render($page['content'])): ?>
                   <div id="content">
+                      
+                      <!--<div class="sort"> 
+                          Сортировать по:<strong>имени</strong>; <strong>цене</strong>
+                        </div> -->
+                      
                     <?php print $content; ?>
                   </div>
                 <?php endif; ?>

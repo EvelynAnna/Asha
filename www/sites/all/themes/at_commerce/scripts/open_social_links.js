@@ -1,6 +1,7 @@
 function socialopen(url){
 window.open(url,'tvkw');
 }
+
 (function ($) { 
     $(document).ready(function(e) {
         $('a.soc-icon').click(function(){

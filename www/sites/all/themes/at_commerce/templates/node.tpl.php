@@ -1,5 +1,6 @@
 <article id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
   <div class="node-inner clearfix">
+      
     <?php print render($title_prefix); ?>
 
     <?php print $unpublished; ?>
@@ -33,6 +34,8 @@
       print render($content);
     ?>
     </div>
+      
+      <!-- -->
 
     <?php if ($links = render($content['links'])): ?>
       <nav<?php print $links_attributes; ?>><?php print $links; ?></nav>

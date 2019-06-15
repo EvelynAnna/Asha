@@ -16,6 +16,55 @@ body {
   text-rendering: optimizeLegibility\9; /* Only IE, can mess with Android */
 }
 
+/* BEGIN */
+
+.sortBtn {
+	position: relative;
+    overflow: hidden;
+    z-index: 1;
+	padding: 10px 40px;
+	font-weight: 600;
+    color: white;
+    font-size: 15px;    
+    text-transform: uppercase;
+	background: #6b6565;
+	outline: none;
+	cursor: pointer;
+    /*transition: 1.5s;*/
+}
+.sortBtn:before,
+.sortBtn:after {
+	content: "";
+	position: absolute;  
+    height: 200px;
+    left: -50%;
+    margin-top: -100px;    
+    top: 50%;
+    width: 200px;
+	border-radius: 50%;
+    opacity: 0.3;
+    z-index: -1;
+    transform: scale(0);
+}
+.sortBtn:before {
+	background: #f3ecec;   
+    transition: .8s ease-out;
+}
+.sortBtn:after {   
+    transition: .4s ease-in .3s;
+}
+.sortBtn:hover {
+    color: #532831;
+}
+.sortBtn:hover:before,
+.sortBtn:hover:after{
+    opacity: 1;
+    transform: scale(4);
+}
+
+/* END */
+
+
 /* Gutters - if gutters are set in theme settings they will override these
    values: see Extensions > Modify Output > Design */
 #main-content,

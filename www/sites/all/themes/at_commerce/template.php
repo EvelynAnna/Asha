@@ -109,7 +109,10 @@ function at_commerce_preprocess_html(&$vars) {
     //drupal_add_js($path_to_theme . '/scripts/hidden.menu.js');
     drupal_add_js($path_to_theme . '/scripts/open_social_links.js');
     drupal_add_js($path_to_theme . '/scripts/grid_maker_url.js');
-    //drupal_add_js($path_to_theme . '/scripts/smooth_lift.js');
+    drupal_add_js($path_to_theme . '/scripts/smooth_lift.js');
+    drupal_add_js($path_to_theme . '/scripts/sort_products.js');
+    drupal_add_js($path_to_theme . '/scripts/price_translate.js');
+    drupal_add_js($path_to_theme . '/scripts/cart_translate.js');
 }
 
 /**
